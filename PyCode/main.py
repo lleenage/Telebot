@@ -25,10 +25,6 @@ add_basic_word(engine, 'Дорога', 'Road')
 add_basic_word(engine, 'Рука', 'Arm')
 add_basic_word(engine, 'Одежда', 'Clothes')
 
-# session = (sessionmaker(bind=engine))()
-# target_w = session.query(Basic_words.english_word).filter(Basic_words.russian_word == russian_word).all()
-#
-# session.close()
 
 if __name__ == '__main__':
     from PyCode.bot_func import bot, russian_words

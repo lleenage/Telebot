@@ -86,13 +86,13 @@ def delete_word(del_word):
 
 @bot.message_handler(commands=['start'])   #начало работы с ботом, комнда "start"
 def send_welcome(message):
-    chat_id = message.chat.id
+    user_id = message.from_user.id
     user_name = message.chat.username
-    if chat_id not in known_users:
-        known_users.extend([user_name, chat_id])
-        add_users(engine, chat_id, user_name) #добавляем пользователя в бд
-        userStep[chat_id] = 0
-        bot.send_message(chat_id, f"""Привет, {user_name}! Добро пожаловать в Бот!
+    if user_id not in known_users:
+        known_users.extend([user_name, user_id])
+        add_users(engine, user_id, user_name) #добавляем пользователя в бд
+        userStep[user_id] = 0
+        bot.send_message(user_id, f"""Привет, {user_name}! Добро пожаловать в Бот!
                                     \nОтправь /help и выбери одну, чтобы ознакомиться с правилами!""")
 
 
@@ -123,7 +123,6 @@ def buttons_card(message):
     markup = types.ReplyKeyboardMarkup(row_width=2)
     translate_word = random.choice(russian_words)
     target_word = 'Правильное слово'  #должно передаваться перевод русского слова
-    # target_word = show_target(data)
     # target_word = target_w.filter(Basic_words.russian_word == russian_word).all() ??????
     other_words = random.sample(english_words, 3)
 

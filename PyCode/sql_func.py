@@ -9,7 +9,7 @@ class User(Base):
     __tablename__ = 'user'
 
     id = sq.Column(sq.Integer, primary_key=True)
-    cid = sq.Column(sq.BigInteger, unique=True)
+    user_id = sq.Column(sq.BigInteger, unique=True)
     name = sq.Column(sq.String(length=80))
 
 
