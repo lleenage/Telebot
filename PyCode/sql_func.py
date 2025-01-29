@@ -12,6 +12,9 @@ class User(Base):
     user_id = sq.Column(sq.BigInteger, unique=True)
     name = sq.Column(sq.String(length=80))
 
+    def __str__(self):
+        return f"Пользовтель номер {self.id}: name:'{self.name}', user_id:'{self.user_id}'"
+
 
 class Basic_words(Base):
     __tablename__ = 'basic_words'
@@ -21,7 +24,7 @@ class Basic_words(Base):
     english_word = sq.Column(sq.String(length=40), unique=True)
 
     def __str__(self):
-        return f'{self.id} basic words is "{self.russian_word}: {self.english_word}"'
+        return f'{self.id} базовое слово "{self.russian_word}: {self.english_word}"'
 
 
 
@@ -36,7 +39,7 @@ class Personal_words(Base):
     user = relationship(User, backref="personal_words")
 
     def __str__(self):
-        return f'Your words is {self.rusian_word}: {self.english_word}'
+        return f'Персональное слово {self.id} "{self.rusian_word}: {self.english_word}"'
     
 
 
