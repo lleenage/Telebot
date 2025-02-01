@@ -27,7 +27,7 @@ add_basic_word(engine, 'Одежда', 'Clothes')
 
 
 if __name__ == '__main__':
-    from PyCode.bot_func import bot, russian_words
+    from PyCode.bot_func import bot
 
     print('Bot is running')
     bot.polling()
