@@ -66,6 +66,8 @@ def delete_word(del_word: str, uid: int) -> int:
             del_eng_word = get_target_word(del_word)
             personal_russian_words.remove(del_word)
             personal_english_words.remove(del_eng_word)
+            english_cards.remove(del_eng_word)
+            russian_cards.remove(del_word)
             print(f'Удалили слово "{del_word}" из бд')
             return session.query(Personal_words).filter(Personal_words.user_id==id_).all()[0]
         elif del_word in personal_english_words:
@@ -74,6 +76,8 @@ def delete_word(del_word: str, uid: int) -> int:
             del_russ_word = get_target_word(del_word)
             personal_english_words.remove(del_word)
             personal_russian_words.remove(del_russ_word)
+            english_cards.remove(del_word)
+            russian_cards.remove(del_russ_word)
             print(f'Удалили слово "{del_word}" из бд')
             return session.query(Personal_words).filter(Personal_words.user_id==id_).all()[0]
         else:
