@@ -88,6 +88,17 @@ def add_basic_word(russian_word: str, english_word: str): #добавляем о
     session.add(Basic_words(russian_word=russian_word, english_word=english_word))
     session.commit()
 
+add_basic_word('Масло', 'Oil')
+add_basic_word('Магазин', 'Shop')
+add_basic_word('Собака', 'Dog')
+add_basic_word('Весна', 'Spring')
+add_basic_word('Дом', 'House')
+add_basic_word('Вода', 'Water')
+add_basic_word('Имя', 'Name')
+add_basic_word('Дорога', 'Road')
+add_basic_word('Рука', 'Arm')
+add_basic_word('Одежда', 'Clothes')
+
 session.close()
 
 
